@@ -18,8 +18,11 @@ router.get('/create/', async (request, response) => {
 });
 
 router.post('/create/',
+
     body('message').notEmpty(),
     body('imageUrl').notEmpty(),
+    
+
     async (request, response) => {
 
     const errors = validationResult(request);

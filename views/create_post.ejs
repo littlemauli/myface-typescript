@@ -3,6 +3,17 @@
 <%- include('_header') -%>
 <body>
 <h1>Create Post</h1>
+<form method="post" action="/posts/create">
+    <label>
+        Image Url:
+        <input type="text" name="imageUrl" required/>
+    </label>
+    <label>
+        Message:
+        <input type="text" name="message" required/>
+    </label>
+    <button type="submit">Create this post</button>
+</form>
 </body>
 <%- include('_footer') -%>
 </html>

@@ -1,15 +1,57 @@
 <html lang="en-gb">
 <%- include('_head') -%>
-<%- include('_header') -%>
-<body>
-<h1>Posts</h1>
-<ol>
-    <% results.forEach(function(post) {%>
-        <li>
-            <%= post.message %>
-        </li>
-    <% }); %>
-</ol>
-</body>
-<%- include('_footer') -%>
+    <%- include('_header') -%>
+
+        <body>
+            <h1>Posts</h1>
+
+            <% results.forEach(function(post) {%>
+                <div id='onePost'>
+                    <div id='imageOnly'>
+                        <img src='<%= post.imageUrl %>'>
+                    </div>
+                    <div id='textOfPost'>
+                        <%= post.postedBy.name %>
+                            <%= post.message %>
+                                <%= post.createdAt %>
+                                    <%= post.likedBy.length %>
+                                        <%= post.dislikedBy.length %>
+                                    </div>
+
+
+                         <form method="post" action='/posts/<%=post.id%>/like/'>
+                            <button type="submit">Like</button> 
+                         </form> 
+                         
+                         <form method="post" action='/posts/<%=post.id%>/dislike/'>
+                            <button type="submit">disike</button> 
+                         </form>   
+                    
+                </div>
+
+
+
+                <% }); %>
+
+
+
+                    <button type="submit" id="next">
+                        <%if (next) { %>
+                            <a href="<%= next %>">Next</a>
+                            <% } %>
+                    </button>
+
+                    <button type="submit" id="previous">
+                        <%if (previous) { %>
+                            <a href="<%= previous %>">Previous</a>
+                            <% } %>
+                    </button>
+                   
+                    <button type="submit" id="Create post">
+                            <a href='/posts/create'>Create a Post</a>
+                    </button>
+                    
+        </body>
+        <%- include('_footer') -%>
+
 </html>
