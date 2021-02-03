@@ -1,57 +1,82 @@
 <html lang="en-gb">
-<%- include('_head') -%>
-    <%- include('_header') -%>
+<link rel="stylesheet" href="/css/app.css">
 
-        <body>
-            <h1>Posts</h1>
-
-            <% results.forEach(function(post) {%>
-                <div id='onePost'>
-                    <div id='imageOnly'>
-                        <img src='<%= post.imageUrl %>'>
-                    </div>
-                    <div id='textOfPost'>
-                        <%= post.postedBy.name %>
-                            <%= post.message %>
-                                <%= post.createdAt %>
-                                    <%= post.likedBy.length %>
-                                        <%= post.dislikedBy.length %>
-                                    </div>
+<div id="head">
+    <div>
+    <%- include('_head') -%>
+</div>
+    <div>
+        <%- include('_header') -%>
+    </div>
+</div>
 
 
-                         <form method="post" action='/posts/<%=post.id%>/like/'>
-                            <button type="submit">Like</button> 
-                         </form> 
-                         
-                         <form method="post" action='/posts/<%=post.id%>/dislike/'>
-                            <button type="submit">disike</button> 
-                         </form>   
-                    
+<body>
+    <h2>Post Feed</h2>
+
+    <% results.forEach(function(post) {%>
+        <div id='entire-post' class='responsive'>
+
+            <div id="NameAndDate">
+                <p>Posted by: <%= post.postedBy.name %>
+                </p>
+
+                <p>on: <%= post.createdAt %>
+                </p>
+            </div>
+
+
+            <div id='imageOnly' class='responsive'>
+                <img class='responsive' src='<%= post.imageUrl %>'>
+            </div>
+
+
+            <div id='textOfPost'>
+                <p>
+                    <%= post.message %>
+                </p>
+            </div>
+
+            <div id="like-and-dislike">
+                <div id="like" class='likeDislike'>
+                    <%= post.likedBy.length %>
+                        <form method="post" action='/posts/<%=post.id%>/like/'>
+                            <button class="button" type="submit">Like</button>
+                        </form>
                 </div>
+                <div id='dislike' class='likeDislike'>
+                    <%= post.dislikedBy.length %>
+                        <form method="post" action='/posts/<%=post.id%>/dislike/'>
+                            <button class="button" type="submit">Dislike</button>
+                        </form>
+                </div>
+            </div>
+
+        </div>
+        <% }); %>
 
 
+            <button type="submit" id="Create post" class="createPost">
+                <a href='/posts/create'>Create a Post</a>
+            </button>
+</body>
 
-                <% }); %>
 
+<footer>
+    <button type="submit" id="next" class='pageButton'>
+        <%if (next) { %>
+            <a href="<%= next %>">Next</a>
+            <% } %>
+    </button>
 
+    <%if (previous) { %>
+    <button type="submit" id="previous" class='pageButton'>
+            <a href="<%= previous %>">Previous</a>
+        
+    </button>
+    <% } %>
+    <%- include('_footer') -%>
+</footer>
 
-                    <button type="submit" id="next">
-                        <%if (next) { %>
-                            <a href="<%= next %>">Next</a>
-                            <% } %>
-                    </button>
-
-                    <button type="submit" id="previous">
-                        <%if (previous) { %>
-                            <a href="<%= previous %>">Previous</a>
-                            <% } %>
-                    </button>
-                   
-                    <button type="submit" id="Create post">
-                            <a href='/posts/create'>Create a Post</a>
-                    </button>
-                    
-        </body>
-        <%- include('_footer') -%>
 
 </html>

@@ -1,1 +1,95 @@
-/* Add your styles here. */
+@media only screen and (max-width: 600px){
+
+body {
+    background-color:#cccccc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+}
+#NameAndDate {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+    background-color:#ffffff;
+    text-align: center; 
+}
+
+#textOfPost{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    background-color:#ffffff;
+}
+
+#head {
+    background-color: #66ccff;
+    width: 100%;
+    border: 15px solid #66ccff;
+    padding: 30px;
+    margin: 0px;  
+}
+
+#usersLink {
+    margin-left: 35%;
+}
+
+
+.headerLinks{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2.0em;
+    color: #e1e1ea;
+}
+
+
+h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #0088cc;
+}
+
+a {
+    text-decoration: none;
+}
+
+#entire-post {
+    float:center;
+    margin:auto;
+    width: 100%;
+    height: auto;
+    border-top-style: solid;
+    border-top-color:#66ccff;
+    border-top-width: 10px;
+}
+
+#imageOnly {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+}
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+#like-and-dislike{
+    display:flex;
+    flex-direction: row; 
+}
+
+.button {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-size: 0.6em;
+  font-weight: bold;
+  width: 65px;
+  padding: 0.80rem;
+  background: #66ccff;
+  color: #e1e1ea;
+  border-radius: 0.6em;
+  cursor: pointer;
+}
+
+
+}
+
+
+
