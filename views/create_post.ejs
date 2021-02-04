@@ -1,18 +1,28 @@
 <html lang="en-gb">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/appBigScreen.css">
 <%- include('_head') -%>
+<div id ="navigation-elements" >
 <%- include('_header') -%>
+</div>
 <body>
-<h1>Create Post</h1>
-<form method="post" action="/posts/create">
+<h2>Create Post</h2>
+<form class="form-elements"method="post" action="/posts/create">
+    <br>
     <label>
         Image Url:
         <input type="text" name="imageUrl" required/>
     </label>
+    <br>
+    <br>
     <label>
         Message:
         <input type="text" name="message" required/>
     </label>
-    <button type="submit">Create this post</button>
+    <br>
+    <br>
+    
+    <button class="button" type="submit">Create post</button>
 </form>
 </body>
 <%- include('_footer') -%>

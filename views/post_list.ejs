@@ -1,11 +1,11 @@
 <html lang="en-gb">
 <link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/appBigScreen.css">
 
 <div id="head">
-    <div>
     <%- include('_head') -%>
-</div>
-    <div>
+    
+    <div id ="navigation-elements" >
         <%- include('_header') -%>
     </div>
 </div>
@@ -18,7 +18,9 @@
         <div id='entire-post' class='responsive'>
 
             <div id="NameAndDate">
-                <p>Posted by: <%= post.postedBy.name %>
+                <p>
+                    <br>
+                    Posted by: <%= post.postedBy.name %>
                 </p>
 
                 <p>on: <%= post.createdAt %>
@@ -37,14 +39,16 @@
                 </p>
             </div>
 
-            <div id="like-and-dislike">
+            <div id="like-and-dislike" class ='responsive'>
                 <div id="like" class='likeDislike'>
+                    Likes so far:
                     <%= post.likedBy.length %>
                         <form method="post" action='/posts/<%=post.id%>/like/'>
                             <button class="button" type="submit">Like</button>
                         </form>
                 </div>
                 <div id='dislike' class='likeDislike'>
+                    dislikes so far:
                     <%= post.dislikedBy.length %>
                         <form method="post" action='/posts/<%=post.id%>/dislike/'>
                             <button class="button" type="submit">Dislike</button>
@@ -53,27 +57,19 @@
             </div>
 
         </div>
+        <br>
         <% }); %>
 
-
-            <button type="submit" id="Create post" class="createPost">
-                <a href='/posts/create'>Create a Post</a>
-            </button>
 </body>
 
 
 <footer>
-    <button type="submit" id="next" class='pageButton'>
-        <%if (next) { %>
-            <a href="<%= next %>">Next</a>
+    <%if (next){%>
+            <a class='pageButton' href="<%= next %>">Next</a>
             <% } %>
-    </button>
 
     <%if (previous) { %>
-    <button type="submit" id="previous" class='pageButton'>
-            <a href="<%= previous %>">Previous</a>
-        
-    </button>
+            <a class='pageButton' href="<%= previous %>">Previous</a>
     <% } %>
     <%- include('_footer') -%>
 </footer>

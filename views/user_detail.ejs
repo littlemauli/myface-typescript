@@ -1,8 +1,20 @@
 <html lang="en-gb">
-<%- include('_head') -%>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/appBigScreen.css">
+
+    <%- include('_head') -%>
+<div id ="navigation-elements" >
 <%- include('_header') -%>
+</div>
+
 <body>
-<h1><%= name %></h1>
+<h2><%= name %></h2>
+<div id='imageOnly' class='responsive'>
+    <img class='responsive' src='<%=profileImageUrl %>'>
+</div>
+
 </body>
+
+
 <%- include('_footer') -%>
 </html>

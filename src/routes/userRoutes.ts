@@ -17,6 +17,7 @@ router.get('/create/', (request, response) => {
     return response.render('create_user');
 });
 
+
 router.post('/create/',
     body('name').notEmpty(),
     body('username').notEmpty().isLowercase().not().contains(" "),
