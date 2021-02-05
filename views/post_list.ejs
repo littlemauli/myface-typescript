@@ -3,11 +3,27 @@
 
 
 <div id="head">
+
     <%- include('_head') -%>
-    
-    <div id ="navigation-elements" >
-        <%- include('_header') -%>
-    </div>
+        <div class="magic-menu">
+            <div>
+                <button id="menu-button" class="button" onclick="myToggle()">Menu</button>
+            </div>
+            <a class="headerLinks" href="">MyFace</a>
+            <a class="headerLinks" href="/home">Home</a>
+            <a class="headerLinks" href="/posts">Posts</a>
+            <a class="headerLinks" href="/users">Users</a>
+            <a class="headerLinks" href='/posts/create'>Create Post</a>
+            <a class="headerlinks" href='/users/create'>Create User</a>
+
+        </div>
+
+        <div class="navigation-elements">
+            <div>
+                <button id="menu-button" class="button" onclick="myToggle()">Menu</button>
+            </div>
+        </div>
+
 </div>
 
 
@@ -15,7 +31,7 @@
     <h2>Post Feed</h2>
 
     <% results.forEach(function(post) {%>
-        <div id='entire-post' class='responsive'>
+        <div class='entire-post' class='responsive'>
 
             <div id="NameAndDate">
                 <p>
@@ -39,7 +55,7 @@
                 </p>
             </div>
 
-            <div id="like-and-dislike" class ='responsive'>
+            <div id="like-and-dislike" class='responsive'>
                 <div id="like" class='likeDislike'>
                     Likes so far:
                     <%= post.likedBy.length %>
@@ -60,18 +76,21 @@
         <br>
         <% }); %>
 
+            <br>
+            <button id="change-colour" class="button" onclick="ChangeBackgroundColour()">Change Colour</button>
+            <br>
 </body>
 
 
 <footer>
     <%if (next){%>
-            <a class='pageButton' href="<%= next %>">Next</a>
-            <% } %>
+        <a class='pageButton' href="<%= next %>">Next</a>
+        <% } %>
 
-    <%if (previous) { %>
-            <a class='pageButton' href="<%= previous %>">Previous</a>
-    <% } %>
-    <%- include('_footer') -%>
+            <%if (previous) { %>
+                <a class='pageButton' href="<%= previous %>">Previous</a>
+                <% } %>
+                    <%- include('_footer') -%>
 </footer>
 
 
