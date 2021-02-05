@@ -1,20 +1,70 @@
 <html lang="en-gb">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/appBigScreen.css">
 
-    <%- include('_head') -%>
-<div id ="navigation-elements" >
-<%- include('_header') -%>
+<head>
+    <title>MyFace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/userDetails.css">
+</head>
+<div class="navigation-elements">
+    <a class="headerLinks" href="">MyFace</a>
+    <a class="headerLinks" href="/home">Home</a>
+    <a id="headerLinksPost" class="headerLinks" href="/posts">Posts</a>
+    <a class="headerLinks" href="/users">Users</a>
+    <a class="headerLinks" href='/posts/create'> + Create Post</a>
+
 </div>
+
+
 
 <body>
-<h2><%= name %></h2>
-<div id='imageOnly' class='responsive'>
-    <img class='responsive' src='<%=profileImageUrl %>'>
-</div>
 
+    <img class='responsive' id='cover-image' src='<%= coverImageUrl %>'>
+    <div id="overlay">
+    </div>
+    <div id="Pict-with-text">
+        <div>
+            <img class='responsive' id='profile-image' src='<%= profileImageUrl %>'>
+        </div>
+
+        <div>
+            <br>
+            <h2>
+                <%= name %>
+            </h2>
+            <p>
+                <%= username %>
+                    <br>
+                    <%= email %>
+            </p>
+        </div>
+    </div>
+
+
+    <h2 id="before-post">
+        <%= name.match(/\w+\s/)%>'s Posts
+    </h2>
+
+
+    <div id="all-posts-container">
+        <% posts.forEach(function(element){%>
+            <div id="one-entire-post">
+                <img class="post-image" src='<%= element.imageUrl %>'>
+                <%= username %>
+                    <br>
+                    <%= element.createdAt.match(/\w+\s/) %>
+                        <%= element.createdAt.match(/-\w+-/) %>
+                            <%= element.createdAt.match(/\w\w\w\w/) %>
+                                <br>
+                                <br>
+                                <%= element.message %>
+            </div>
+
+            <% }); %>
+    </div>
+    
 </body>
 
 
 <%- include('_footer') -%>
+
 </html>
